@@ -1,4 +1,3 @@
-
 require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
@@ -21,7 +20,10 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "password",
                                          password_confirmation: "password" } }
     end
+    # redirect_to @user
     follow_redirect!
+    # Test
     assert_template 'users/show'
+    assert is_logged_in?
   end
 end

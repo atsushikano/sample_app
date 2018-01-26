@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   # GET /users/:id
   def show
     @user = User.find(params[:id])
@@ -8,6 +9,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    # => form_for @user
   end
 
   # POST /users
@@ -17,9 +19,7 @@ class UsersController < ApplicationController
       # Sucess
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
-      # GET "/users/#{@user.id}" => show
     else
-      # Failure
       render 'new'
     end
   end
